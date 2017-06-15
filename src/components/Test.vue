@@ -12,7 +12,7 @@
         <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-      <input type="text" class="form-control" placeholder="Text input" v-model="newtodo.name">
+      <input type="text" class="form-control" placeholder="Create a New Todo" v-model="newtodo.name">
       </div >
           <div class="col-md-2  ">
       <input type="submit" class="btn btn-success">
@@ -38,8 +38,11 @@ export default {
   },
     methods:{
       addtodo(newtodo){
-          this.todos.push(newtodo);
-          this.newtodo={name:""};
+          if(newtodo.name)
+          {
+              this.todos.push(newtodo);
+              this.newtodo={name:""};
+          }
       },
         deltodo(index){
           this.todos.splice(index,1);
